@@ -8,4 +8,5 @@ class Enemy:
         self.difficulty = difficulty #might not be necessary but idk
     
     def attack(self):
-        
+        bob.health - self.damage
+        print(bob.health)
