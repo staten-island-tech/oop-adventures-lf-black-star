@@ -10,4 +10,6 @@ class Hero:
         self.regen = regen
     
     def attack(self):
-        
+        print("yay")
+
+adventurer = Hero(100, 0, 20, [], 0, [], 1, 0)
