@@ -1,5 +1,5 @@
 class Hero:
-    def __init__(self, health, defense, damage, inventory, tokens, relics, speed, regen):
+    def __init__(self, health, defense, damage, inventory, tokens, relics, speed, regen, weapon, chestplate, helmet, leggings, boots):
         self.health = health
         self.defense = defense
         self.damage = damage
