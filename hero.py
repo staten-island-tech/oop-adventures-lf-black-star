@@ -1,4 +1,4 @@
-from relics import relic_list
+
 class Hero:
     def __init__(self, health, defense, damage, inventory, tokens, relics, speed, regen, weapon, chestplate, helmet, leggings, boots):
         self.health = health
