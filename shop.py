@@ -6,59 +6,108 @@ class shop:
         self.name = name
         self.equipment = equipment
     
-    def player_buy(self):
-        Hprice = (random.randint((blacksmith.equipment[0] + 10), (blacksmith.equipment[0] + 15)) * 2)
-        Cprice = (random.randint((blacksmith.equipment[1] + 15), (blacksmith.equipment[1] + 20)) * 2)
-        Lprice = (random.randint((blacksmith.equipment[2] + 10), (blacksmith.equipment[2] + 15)) * 2)
-        Bprice = (random.randint((blacksmith.equipment[3] + 5), (blacksmith.equipment[3] + 10)) * 2)
-        Sprice = (random.randint((blacksmith.equipment[3] + 15), (blacksmith.equipment[3] + 20)) * 2)
-        shop_equipment = blacksmith.equipment
-        shop_equipment_text = ["helmet", "chestplate", "leggings", "boots", "sword"]
+    def prepare_shop(self):
+        if self.name == "blacksmith":
+            global blacksmith_items
+            blacksmith_items = [{
+        "name": "Helmet",
+        "stat boost": random.randint((adventurer.ranking), (adventurer.ranking + 25)),
+        "price": (random.randint((adventurer.ranking + 10), (adventurer.ranking + 15)) * 2)}
+    ,{
+        "name": "Chestplate",
+        "stat boost": random.randint((adventurer.ranking), (adventurer.ranking + 20)),
+        "price": (random.randint((adventurer.ranking + 15), (adventurer.ranking + 20)) * 2)}
+    ,{
+        "name": "Leggings",
+        "stat boost": random.randint((adventurer.ranking), (adventurer.ranking + 25)),
+        "price": (random.randint((adventurer.ranking + 10), (adventurer.ranking + 15)) * 2)}
+    ,{
+        "name": "Boots",
+        "stat boost": random.randint((adventurer.ranking), (adventurer.ranking + 20)),
+        "price": (random.randint((adventurer.ranking + 5), (adventurer.ranking + 10)) * 2)}
+    ,{
+        "name": "Sword",
+        "stat boost": random.randint((adventurer.ranking), (adventurer.ranking + 30)),
+        "price": (random.randint((adventurer.ranking + 15), (adventurer.ranking + 20)) * 2)}]
+            blacksmith.player_interact()
+    
+    def player_interact(self):
+        item_names = [item["name"] for item in blacksmith_items]
         prompt = "Not chosen!"
-        while prompt != 2:
+        while prompt != 3:
             print("1: View items")
-            print("2: Leave shop")
+            print("2: Sell items")
+            print("3: Leave shop")
             prompt = input(f"This is a {self.name}. What would you like to do?")
             if prompt.isdigit() == False:
                 print("Invalid input. Please try again.")
             else:
                 prompt = int(prompt)
-                if prompt == 1:
+                if prompt == 1 and len(item_names) > 0:
                     print("Equipment provides an overall boost to your health, damage and defense in battle.")
-                    if len(shop_equipment_text) == 0:
-                        print("No equipment found!")
-                    else:
-                        print(shop_equipment)
-                        selection = input(f"What would you like to purchase?")
-                        selection = selection.lower()
-                        if selection == "helmet" and selection in shop_equipment_text:
-                            if adventurer.tokens >= Hprice:
-                                adventurer.tokens -= Hprice
+                    for index, item in enumerate(blacksmith_items, start = 1):
+                        print(index, ":", item)
+                    selection = input(f"What would you like to purchase?")
+                    if selection in item_names:
+                        if selection == 1:
+                            if adventurer.tokens >= blacksmith_items[0]["price"]:
+                                adventurer.tokens -= blacksmith_items[0]["price"]
+                                print(f"Purchase successful! Current token balance: {adventurer.tokens}")
                             else:
                                 print("You do not have enough tokens.")
-                        if selection == "chestplate":
-                            if adventurer.tokens >= Cprice:
-                                adventurer.tokens -= Cprice
+                        if selection == 2:
+                            if adventurer.tokens >= blacksmith_items[1]["price"]:
+                                adventurer.tokens -= blacksmith_items[1]["price"]
+                                print(f"Purchase successful! Current token balance: {adventurer.tokens}")
                             else:
                                 print("You do not have enough tokens.")
-                        if selection == "leggings":
-                            if adventurer.tokens >= Lprice:
-                                adventurer.tokens -= Lprice
+                        if selection == 3:
+                            if adventurer.tokens >= blacksmith_items[2]["price"]:
+                                adventurer.tokens -= blacksmith_items[2]["price"]
+                                print(f"Purchase successful! Current token balance: {adventurer.tokens}")
                             else:
                                 print("You do not have enough tokens.")
-                        if selection == "boots":
-                            if adventurer.tokens >= Bprice:
-                                adventurer.tokens -= Bprice
+                        if selection == 4:
+                            if adventurer.tokens >= blacksmith_items[3]["price"]:
+                                adventurer.tokens -= blacksmith_items[3]["price"]
+                                print(f"Purchase successful! Current token balance: {adventurer.tokens}")
                             else:
                                 print("You do not have enough tokens.")
-                        if selection == "sword":
-                            if adventurer.tokens >= Sprice:
-                                adventurer.tokens -= Sprice
+                        if selection == 5:
+                            if adventurer.tokens >= blacksmith_items[4]["price"]:
+                                adventurer.tokens -= blacksmith_items[4]["price"]
+                                print(f"Purchase successful! Current token balance: {adventurer.tokens}")
                             else:
                                 print("You do not have enough tokens.")
+                        else:
+                            print("Invalid input. Please try again.")
+                else:
+                    print("No items found!")
                 if prompt == 2:
+                    print("soon")
+                if prompt == 3:
                     print(f"You left the {self.name}.")
                     return "player left"
 
-blacksmith = shop("blacksmith", [random.randint((adventurer.ranking), (adventurer.ranking + 25)), random.randint((adventurer.ranking), (adventurer.ranking + 20)), random.randint((adventurer.ranking), (adventurer.ranking + 25)), random.randint((adventurer.ranking), (adventurer.ranking + 20)), random.randint((adventurer.ranking), (adventurer.ranking + 30))])
-blacksmith.player_buy()
+blacksmith_items = [{
+        "name": "Helmet",
+        "boost": random.randint((adventurer.ranking), (adventurer.ranking + 25)),
+        "price": (random.randint((adventurer.ranking + 10), (adventurer.ranking + 15)) * 2)}
+    ,{
+        "name": "Chestplate",
+        "boost": random.randint((adventurer.ranking), (adventurer.ranking + 20)),
+        "price": (random.randint((adventurer.ranking + 15), (adventurer.ranking + 20)) * 2)}
+    ,{
+        "name": "Leggings",
+        "boost": random.randint((adventurer.ranking), (adventurer.ranking + 25)),
+        "price": (random.randint((adventurer.ranking + 10), (adventurer.ranking + 15)) * 2)}
+    ,{
+        "name": "Boots",
+        "boost": random.randint((adventurer.ranking), (adventurer.ranking + 20)),
+        "price": (random.randint((adventurer.ranking + 5), (adventurer.ranking + 10)) * 2)}
+    ,{
+        "name": "Sword",
+        "boost": random.randint((adventurer.ranking), (adventurer.ranking + 30)),
+        "price": (random.randint((adventurer.ranking + 15), (adventurer.ranking + 20)) * 2)}]
+blacksmith = shop("blacksmith", blacksmith_items)
+blacksmith.prepare_shop()
