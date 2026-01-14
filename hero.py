@@ -21,4 +21,4 @@ class Hero:
     def attack(self):
         print("yay")
 
-adventurer = Hero(100, 20, [], 0, [], 1, 0, 0, 0, 0, 0, 0, 0)
+adventurer = Hero(100, 20, [], 0, [], 1, 0, 5, 10, 5, 5, 5, 0)
