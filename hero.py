@@ -34,7 +34,8 @@ class Hero:
         print("yay")
 
 adventurer = Hero(100, 20, [], 999999999, [] , 1, 0, 1, {
-    "name": "helmet"
-    ""
+    "name": "helmet",
+    "boost": 5,
+    "price": 5
 }, 0)
 print(adventurer)
