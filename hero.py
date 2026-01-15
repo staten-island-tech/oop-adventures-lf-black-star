@@ -37,7 +37,7 @@ class Hero:
     def attack(self):
         print("yay")
 
-adventurer = Hero(100, 20, [], 999999999, {
+adventurer = Hero(100, 20, [], 999999999, { #maybe do it for equipment instead
         "name": "Blessing of Hermes",
         "is_obtained": False}
     ,{

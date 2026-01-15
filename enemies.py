@@ -10,7 +10,7 @@ class Enemy:
         self.defense = defense
         self.token_drops = token_drops
         self.relic_chance = relic_chance
-        self.difficulty = difficulty #might not be necessary but idk
+        self.difficulty = difficulty
     
     def attack(self):
         adventurer.health - self.damage
@@ -22,5 +22,3 @@ class Enemy:
             print(f"{self.name} slain! {self.token_drops} tokens rewarded.")
             adventurer.tokens += self.token_drops
             if self.relic_chance >= random.randint(1, 100):
-                
-        
