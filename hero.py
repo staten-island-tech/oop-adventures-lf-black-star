@@ -3,7 +3,6 @@ from equipment import aphrodite
 from equipment import plutus
 from equipment import athena
 from equipment import ares
-#TEMPORARY
 class Hero:
     def __init__(self, health, damage, inventory, tokens, obtained_relics, speed, regen, wealth, weapon, helmet, chestplate, leggings, boots, ranking):
         self.health = health
@@ -38,4 +37,19 @@ class Hero:
     def attack(self):
         print("yay")
 
-adventurer = Hero(100, 20, [], 0, [], 1, 0, 1, 5, 10, 5, 5, 5, 0)
+adventurer = Hero(100, 20, [], 999999999, {
+        "name": "Blessing of Hermes",
+        "is_obtained": False}
+    ,{
+        "name": "Blessing of Aphrodite",
+        "is_obtained": False}
+    ,{
+        "name": "Blessing of Plutus",
+        "is_obtained": False}
+    ,{
+        "name": "Blessing of Athena",
+        "is_obtained": False}
+    ,{
+        "name": "Blessing of Ares",
+        "is_obtained": False} , 1, 0, 1, 5, 10, 5, 5, 5, 0)
+print(adventurer)
