@@ -1,5 +1,5 @@
 class Hero:
-    def __init__(self, health, damage, inventory, tokens, obtained_relics, speed, regen, wealth, weapon, helmet, chestplate, leggings, boots, ranking):
+    def __init__(self, health, damage, inventory, tokens, obtained_relics, speed, regen, wealth, equipment, ranking):
         self.health = health
         self.damage = damage
         self.inventory = inventory
@@ -8,11 +8,7 @@ class Hero:
         self.speed = speed
         self.regen = regen
         self.wealth = wealth
-        self.weapon = weapon
-        self.helmet = helmet
-        self.chestplate = chestplate
-        self.leggings = leggings
-        self.boots = boots
+        self.equipment = equipment
         self.ranking = ranking
 
     def apply_boosts(self):
@@ -32,4 +28,9 @@ class Hero:
     def attack(self):
         print("yay")
 
-adventurer = Hero(100, 20, [], 999999999, [], 1, 0, 1, 5, 10, 5, 5, 5, 0)
+adventurer = Hero(100, 20, [{"name": "Helmet", "boost": 5, "price": 5}], 
+                  999999999, [] , 1, 0, 1, [{"name": "Helmet", "boost": 5, "price": 5},
+                                            {"name": "Chestplate", "boost": 10, "price": 5},
+                                            {"name": "Leggings", "boost": 5, "price": 5},
+                                            {"name": "Boots", "boost": 5, "price": 5},
+                                            {"name": "Sword", "boost": 20, "price": 10}], 0)
