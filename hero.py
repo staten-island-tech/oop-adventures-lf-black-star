@@ -33,9 +33,8 @@ class Hero:
     def attack(self):
         print("yay")
 
-adventurer = Hero(100, 20, [], 999999999, [] , 1, 0, 1, {
-    "name": "helmet",
-    "boost": 5,
-    "price": 5
-}, 0)
-print(adventurer)
+adventurer = Hero(100, 20, [], 999999999, [] , 1, 0, 1, [{"name": "Helmet", "boost": 5, "price": 5},
+                                                         {"name": "Chestplate", "boost": 10, "price": 5},
+                                                         {"name": "Leggings", "boost": 5, "price": 5},
+                                                         {"name": "Boots", "boost": 5, "price": 5}], 0)
+print(adventurer.__dict__)

@@ -1,5 +1,5 @@
 from hero import adventurer #TEMP
-
+#done1
 class Equipment:
     def __init__(self, name, stat_type, stat_boost):
         self.name = name
